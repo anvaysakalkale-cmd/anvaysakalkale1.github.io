@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anvay Sakalkale — Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#0F6E5A;
+    --teal-light:#1A9E7A;
+    --teal-bg:#E8F5F0;
+    --charcoal:#1C1C1C;
+    --off:#F7F6F2;
+    --mid:#6B6B6B;
+    --border:#E0DDD6;
+    --white:#fff;
+    --nav-h:64px;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--off);
+    color:var(--charcoal);
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:var(--white);
+    border-bottom:1px solid var(--border);
+    height:var(--nav-h);
+    display:flex;align-items:center;
+    padding:0 2rem;
+    justify-content:space-between;
+  }
+  .nav-logo{
+    font-family:'Syne',sans-serif;
+    font-weight:800;font-size:18px;
+    color:var(--charcoal);
+    text-decoration:none;
+    letter-spacing:-0.5px;
+  }
+  .nav-logo span{color:var(--teal)}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{
+    text-decoration:none;color:var(--mid);
+    font-size:13px;font-weight:500;
+    letter-spacing:0.3px;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--teal)}
+
+  /* SECTIONS */
+  section{padding:80px 0}
+  .container{max-width:960px;margin:0 auto;padding:0 2rem}
+
+  /* HERO */
+  #hero{
+    background:var(--charcoal);
+    padding:120px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  #hero::before{
+    content:'';position:absolute;
+    top:-120px;right:-80px;
+    width:500px;height:500px;
+    border-radius:50%;
+    background:var(--teal);
+    opacity:0.08;
+  }
+  #hero::after{
+    content:'';position:absolute;
+    bottom:-60px;left:30%;
+    width:300px;height:300px;
+    border-radius:50%;
+    background:var(--teal-light);
+    opacity:0.05;
+  }
+  .hero-inner{
+    max-width:960px;margin:0 auto;padding:0 2rem;
+    position:relative;z-index:1;
+  }
+  .hero-tag{
+    display:inline-block;
+    background:var(--teal);
+    color:#fff;
+    font-size:11px;font-weight:500;
+    letter-spacing:1.5px;text-transform:uppercase;
+    padding:5px 14px;border-radius:2px;
+    margin-bottom:28px;
+  }
+  .hero-name{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:clamp(48px,8vw,88px);
+    line-height:0.95;
+    color:#fff;
+    letter-spacing:-3px;
+    margin-bottom:32px;
+  }
+  .hero-name span{color:var(--teal-light)}
+  .hero-sub{
+    color:#A0A09A;
+    font-size:17px;font-weight:300;
+    max-width:540px;line-height:1.8;
+    margin-bottom:48px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:4px;
+    font-size:13px;font-weight:500;
+    text-decoration:none;
+    transition:all 0.2s;cursor:pointer;border:none;
+    font-family:'DM Sans',sans-serif;
+  }
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-primary:hover{background:var(--teal-light)}
+  .btn-outline{background:transparent;border:1px solid #3A3A3A;color:#C0BFB8}
+  .btn-outline:hover{border-color:#666;color:#fff}
+  .hero-contacts{
+    margin-top:56px;
+    display:flex;gap:32px;flex-wrap:wrap;
+    border-top:1px solid #2C2C2C;
+    padding-top:32px;
+  }
+  .hero-contact-item{
+    display:flex;align-items:center;gap:8px;
+    color:#6B6B6B;font-size:13px;
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  .hero-contact-item:hover{color:#A0A09A}
+  .hero-contact-item svg{opacity:0.6}
+
+  /* SECTION HEADERS */
+  .section-label{
+    font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+    color:var(--teal);margin-bottom:12px;
+  }
+  .section-title{
+    font-family:'Syne',sans-serif;
+    font-weight:800;font-size:clamp(28px,4vw,40px);
+    letter-spacing:-1px;color:var(--charcoal);
+    margin-bottom:48px;line-height:1.1;
+  }
+
+  /* ABOUT */
+  #about{background:var(--white)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .about-text p{color:var(--mid);line-height:1.9;margin-bottom:16px;font-size:15px}
+  .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .stat-card{
+    background:var(--off);
+    border:1px solid var(--border);
+    border-radius:8px;padding:20px;
+  }
+  .stat-num{
+    font-family:'Syne',sans-serif;
+    font-weight:800;font-size:32px;
+    color:var(--teal);letter-spacing:-1px;
+  }
+  .stat-label{font-size:12px;color:var(--mid);margin-top:4px}
+
+  /* PROJECTS */
+  #projects{background:var(--off)}
+  .projects-grid{display:grid;gap:24px}
+  .project-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:32px;
+    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;
+    transition:border-color 0.2s,transform 0.2s;
+  }
+  .project-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+  .project-num{
+    font-family:'Syne',sans-serif;
+    font-weight:800;font-size:13px;
+    color:var(--teal);letter-spacing:1px;
+    margin-bottom:12px;
+  }
+  .project-title{
+    font-family:'Syne',sans-serif;
+    font-weight:700;font-size:19px;
+    color:var(--charcoal);margin-bottom:8px;line-height:1.3;
+  }
+  .project-tools{
+    display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;
+  }
+  .tag{
+    font-size:11px;font-weight:500;
+    padding:3px 10px;border-radius:2px;
+    background:var(--teal-bg);color:var(--teal);
+    letter-spacing:0.3px;
+  }
+  .project-desc{color:var(--mid);font-size:14px;line-height:1.8}
+  .project-points{margin-top:12px;padding-left:0;list-style:none}
+  .project-points li{
+    font-size:13px;color:var(--mid);
+    padding:4px 0;padding-left:16px;
+    position:relative;line-height:1.7;
+  }
+  .project-points li::before{
+    content:'›';
+    position:absolute;left:0;
+    color:var(--teal);font-weight:700;
+  }
+
+  /* SKILLS */
+  #skills{background:var(--white)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+  .skill-group{
+    border:1px solid var(--border);
+    border-radius:8px;padding:24px;
+    background:var(--off);
+  }
+  .skill-group-title{
+    font-family:'Syne',sans-serif;
+    font-weight:700;font-size:14px;
+    color:var(--charcoal);margin-bottom:16px;
+    padding-bottom:12px;
+    border-bottom:2px solid var(--teal);
+    display:inline-block;
+  }
+  .skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .skill-pill{
+    font-size:12px;font-weight:500;
+    padding:5px 12px;border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--white);color:var(--charcoal);
+    transition:all 0.2s;
+  }
+  .skill-pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  /* INTERNSHIP */
+  #internship{background:var(--off)}
+  .intern-card{
+    background:var(--white);border:1px solid var(--border);
+    border-radius:10px;padding:36px;
+    border-left:4px solid var(--teal);
+  }
+  .intern-org{
+    font-family:'Syne',sans-serif;
+    font-weight:700;font-size:20px;
+    color:var(--charcoal);margin-bottom:4px;
+  }
+  .intern-role{color:var(--teal);font-size:14px;font-weight:500;margin-bottom:20px}
+  .intern-points{list-style:none;padding:0}
+  .intern-points li{
+    padding:6px 0 6px 20px;
+    position:relative;color:var(--mid);font-size:14px;line-height:1.8;
+  }
+  .intern-points li::before{
+    content:'›';position:absolute;left:0;
+    color:var(--teal);font-weight:700;font-size:16px;
+  }
+
+  /* EDUCATION */
+  #education{background:var(--white)}
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .edu-card{
+    border:1px solid var(--border);border-radius:8px;
+    padding:24px;background:var(--off);
+    position:relative;overflow:hidden;
+  }
+  .edu-card::after{
+    content:'';position:absolute;
+    top:0;left:0;width:100%;height:3px;
+    background:var(--teal);
+  }
+  .edu-year{font-size:12px;color:var(--teal);font-weight:500;letter-spacing:1px;margin-bottom:8px}
+  .edu-inst{
+    font-family:'Syne',sans-serif;
+    font-weight:700;font-size:16px;
+    color:var(--charcoal);margin-bottom:6px;line-height:1.3;
+  }
+  .edu-score{font-size:13px;color:var(--mid)}
+  .edu-score strong{color:var(--charcoal);font-weight:500}
+
+  /* CERTIFICATIONS */
+  #certifications{background:var(--off)}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .cert-card{
+    background:var(--white);border:1px solid var(--border);
+    border-radius:8px;padding:20px;
+    display:flex;flex-direction:column;gap:6px;
+    transition:border-color 0.2s;
+  }
+  .cert-card:hover{border-color:var(--teal)}
+  .cert-icon{
+    width:36px;height:36px;border-radius:6px;
+    background:var(--teal-bg);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:8px;
+  }
+  .cert-name{font-weight:500;font-size:14px;color:var(--charcoal);line-height:1.3}
+  .cert-org{font-size:12px;color:var(--mid)}
+
+  /* CONTACT */
+  #contact{background:var(--charcoal)}
+  #contact .section-label{color:var(--teal-light)}
+  #contact .section-title{color:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .contact-intro{color:#A0A09A;font-size:15px;line-height:1.9;max-width:400px}
+  .contact-links{display:flex;flex-direction:column;gap:16px}
+  .contact-link{
+    display:flex;align-items:center;gap:14px;
+    text-decoration:none;
+    padding:16px 20px;border-radius:8px;
+    border:1px solid #2C2C2C;
+    transition:border-color 0.2s,background 0.2s;
+    color:#C0BFB8;
+  }
+  .contact-link:hover{border-color:var(--teal);background:#1F1F1F}
+  .contact-link-icon{
+    width:36px;height:36px;border-radius:6px;
+    background:#2A2A2A;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-link-info{display:flex;flex-direction:column;gap:2px}
+  .contact-link-label{font-size:11px;color:#6B6B6B;letter-spacing:0.5px;text-transform:uppercase}
+  .contact-link-val{font-size:14px;color:#C0BFB8}
+
+  /* RESUME DOWNLOAD */
+  .resume-section{
+    background:#1A1A1A;
+    border:1px solid #2C2C2C;
+    border-radius:10px;padding:28px;
+    margin-top:32px;
+    display:flex;align-items:center;gap:20px;justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .resume-info{}
+  .resume-info p{color:#6B6B6B;font-size:13px;margin-top:4px}
+  .resume-info strong{color:#C0BFB8;font-size:15px}
+
+  /* FOOTER */
+  footer{
+    background:var(--charcoal);
+    border-top:1px solid #2A2A2A;
+    padding:24px 2rem;
+    text-align:center;
+    color:#444;font-size:12px;letter-spacing:0.3px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .fade-up{animation:fadeUp 0.6s ease both}
+  .delay-1{animation-delay:0.1s}
+  .delay-2{animation-delay:0.2s}
+  .delay-3{animation-delay:0.3s}
+  .delay-4{animation-delay:0.4s}
+
+  @media(max-width:640px){
+    .about-grid,.contact-grid{grid-template-columns:1fr}
+    .project-card{grid-template-columns:1fr}
+    nav{padding:0 1rem}
+    .nav-links{gap:1rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Anvay<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag fade-up">Mechanical Engineering Student</div>
+    <h1 class="hero-name fade-up delay-1">Anvay<br><span>Sakalkale</span></h1>
+    <p class="hero-sub fade-up delay-2">CAD · CFD · Automotive Systems · Machine Learning for Engineering<br>Building at the intersection of simulation, design, and data.</p>
+    <div class="hero-ctas fade-up delay-3">
+      <a href="#projects" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-contacts fade-up delay-4">
+      <a href="tel:9405586085" class="hero-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        9405586085
+      </a>
+      <a href="mailto:anvaysakalkale@gmail.com" class="hero-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        anvaysakalkale@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/anvay-sakalkale" target="_blank" class="hero-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/anvay-sakalkale
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title" style="margin-bottom:24px">Engineering with purpose.</h2>
+        <p>I'm a Mechanical Engineering student at Bajaj Institute of Technology (DBATU) with a strong foundation in CAD tools, CFD simulation, and automotive systems.</p>
+        <p>My work sits at the intersection of classical mechanical engineering and modern computational tools — from building Navier-Stokes solvers in Python to designing ML-driven ergonomics systems in Fusion 360.</p>
+        <p>I bring initiative, analytical thinking, and a hunger to solve real engineering problems at the system level.</p>
+      </div>
+      <div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Engineering Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">84%</div>
+            <div class="stat-label">SSC Score</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">6.17</div>
+            <div class="stat-label">CGPA (6th Sem)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div>
+          <div class="project-num">01</div>
+          <h3 class="project-title">CFD — Dual-Cylinder Flow Simulation</h3>
+          <div class="project-tools">
+            <span class="tag">Python</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Google Colab</span>
+          </div>
+          <ul class="project-points">
+            <li>Built a 2D incompressible Navier–Stokes solver from first principles implementing full viscous flow and time-dependent wake dynamics.</li>
+            <li>Simulated flow around two circular cylinders at Re ≈ 200 — visualized vortex shedding and wake interaction with vorticity and velocity-field plots.</li>
+            <li>Validated flow patterns against classical CFD behaviour; results hosted in an accessible Colab notebook.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-num">02</div>
+          <h3 class="project-title">Radiator Performance Tester — Thermal & Airflow Analysis</h3>
+          <div class="project-tools">
+            <span class="tag">Python</span>
+            <span class="tag">Heat Transfer</span>
+            <span class="tag">CFD</span>
+          </div>
+          <ul class="project-points">
+            <li>Developed a Python-based program running 50,000 iterations per condition to compute radiator cooling effectiveness across airflow speeds from 0 to 150 km/h.</li>
+            <li>Evaluated coolant temperature drop and air-side heat transfer while analyzing airflow behavior across varying environments.</li>
+            <li>Studied the effect of ambient temperature and airflow velocity on overall cooling efficiency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-num">03</div>
+          <h3 class="project-title">ML-Based Driver Height Prediction & Seat Ergonomics</h3>
+          <div class="project-tools">
+            <span class="tag">Python</span>
+            <span class="tag">Mediapipe</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Fusion 360</span>
+          </div>
+          <ul class="project-points">
+            <li>Built a machine-learning system using Mediapipe to extract anthropometric keypoints from a single image and estimate driver height.</li>
+            <li>Applied a regression model to convert height into ergonomic seat height and steering-wheel distance parameters.</li>
+            <li>Designed and parameterized the car-seat model in Fusion 360, integrating ML-driven analysis with CAD-based ergonomic validation.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div>
+          <div class="project-num">04</div>
+          <h3 class="project-title">CNC Machined Part Inspection System</h3>
+          <div class="project-tools">
+            <span class="tag">WIZER Machine Vision</span>
+            <span class="tag">Baumer Camera</span>
+            <span class="tag">Python</span>
+            <span class="tag">Excel Dashboard</span>
+            <span class="tag">Industry 4.0</span>
+          </div>
+          <ul class="project-points">
+            <li>Configured WIZER — a no-code industrial machine vision platform — on a Baumer industrial camera to perform automated real-time surface defect detection on CNC machined steel parts (scratches, cracks, inclusions, pitting, crazing).</li>
+            <li>Trained the defect detection module using 50–100 reference images of defect-free parts, building a statistical surface model; tuned sensitivity thresholds to balance detection accuracy against false-positive rate.</li>
+            <li>Integrated a Python-based data logging module that reads WIZER output and records defect type, location, confidence score, and Accept/Reject verdict into a structured Excel workbook with a live inspection dashboard.</li>
+            <li>Delivered a fully deployable, no-code inspection station suitable for CNC machining workshops under Industry 4.0 quality requirements — requiring no deep learning expertise to operate or maintain.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-num">05</div>
+          <h3 class="project-title">Mitsubishi PLC-Based Automated Bottling Plant</h3>
+          <div class="project-tools">
+            <span class="tag">Mitsubishi PLC</span>
+            <span class="tag">HMI</span>
+            <span class="tag">Ladder Logic</span>
+            <span class="tag">GX Works</span>
+            <span class="tag">Sensors & Actuators</span>
+          </div>
+          <ul class="project-points">
+            <li>Designed and implemented a fully automated bottling plant using a Mitsubishi PLC integrated with HMI, proximity/photoelectric sensors, solenoid valves, timers, counters, and a conveyor system.</li>
+            <li>Programmed ladder logic for automated bottle detection, conveyor control, timed solenoid filling, pneumatic feed-separator control, and post-fill bottle counting using diffuse sensors.</li>
+            <li>Implemented PLC arithmetic function blocks to calculate total bottles filled, remaining batch quantity, and average bottles per cycle — all displayed in real time on the HMI.</li>
+            <li>Achieved uniform filling, accurate counting, and safe operation with minimal human intervention — improving production accuracy, cycle time, and operator safety.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">CAD & Simulation</div>
+        <ul class="skill-list">
+          <li class="skill-pill">ANSYS</li>
+          <li class="skill-pill">Creo</li>
+          <li class="skill-pill">CATIA</li>
+          <li class="skill-pill">Fusion 360</li>
+          <li class="skill-pill">Siemens FEMAP</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Python</li>
+          <li class="skill-pill">NumPy</li>
+          <li class="skill-pill">Matplotlib</li>
+          <li class="skill-pill">Mediapipe</li>
+          <li class="skill-pill">Google Colab</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Mechanical Engineering</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Mechanical Design</li>
+          <li class="skill-pill">Manufacturing</li>
+          <li class="skill-pill">IC Engines</li>
+          <li class="skill-pill">FEM Basics</li>
+          <li class="skill-pill">Vehicle Ergonomics</li>
+          <li class="skill-pill">Energy Management</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Automotive & Mechatronics</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Automotive Systems</li>
+          <li class="skill-pill">Gear Mechanisms</li>
+          <li class="skill-pill">Hydraulics</li>
+          <li class="skill-pill">Pneumatics</li>
+          <li class="skill-pill">Mechatronics</li>
+          <li class="skill-pill">Industrial Automation</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">PLC & Motion Control</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Mitsubishi PLC</li>
+          <li class="skill-pill">Ladder Logic</li>
+          <li class="skill-pill">GX Works</li>
+          <li class="skill-pill">HMI Programming</li>
+          <li class="skill-pill">Servo Drives / VFD</li>
+          <li class="skill-pill">PID Control</li>
+          <li class="skill-pill">WIZER Vision</li>
+          <li class="skill-pill">Baumer Camera</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Industry 4.0 & Smart Mfg</div>
+        <ul class="skill-list">
+          <li class="skill-pill">IoT / M2M / SCADA</li>
+          <li class="skill-pill">Raspberry Pi / Arduino</li>
+          <li class="skill-pill">Computer Vision (AI)</li>
+          <li class="skill-pill">Machine Learning</li>
+          <li class="skill-pill">AR/VR (Studio Max)</li>
+          <li class="skill-pill">MES / CIM</li>
+          <li class="skill-pill">Digital Communications</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship">
+  <div class="container">
+    <div class="section-label">Training & Experience</div>
+    <h2 class="section-title">BEST Bajaj Engineering Skill Training Centre</h2>
+
+    <div style="display:grid;gap:20px">
+
+      <div class="intern-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+          <div style="background:var(--teal-bg);color:var(--teal);font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;letter-spacing:0.5px;white-space:nowrap">MODULE 1</div>
+          <div class="intern-org" style="margin-bottom:0;font-size:17px">Industrial Automation & Electrical Systems</div>
+        </div>
+        <div class="intern-role">Hydraulics · Pneumatics · Electro-Pneumatics · Industrial Sensors · Induction Motors · Transformers</div>
+        <ul class="intern-points">
+          <li>Completed hands-on training covering Hydraulics, Pneumatics, Electro-Hydraulics, Electro-Pneumatics, Industrial Sensors, Induction Motors, and Transformers.</li>
+          <li>Built hydraulic/pneumatic circuits, wired electro-pneumatic systems, and configured sensor-based PLC control logic.</li>
+          <li>Performed load, speed, and direction analysis on induction motors and transformer setups.</li>
+        </ul>
+      </div>
+
+      <div class="intern-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+          <div style="background:var(--teal-bg);color:var(--teal);font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;letter-spacing:0.5px;white-space:nowrap">MODULE 2</div>
+          <div class="intern-org" style="margin-bottom:0;font-size:17px">Motion Control & Sensor Technology</div>
+        </div>
+        <div class="intern-role">PLC / CNC / HMI · Servo Motors & Drives · PID Control · Digital Communications · Industrial Instrumentation</div>
+        <ul class="intern-points">
+          <li>Configured and programmed Mitsubishi PLC and HMI; performed CNC part programming on Siemens 828D and 808D advanced CNC kits.</li>
+          <li>Parametrized servo motor/VFD drives and configured position feedback using encoders and linear scales on Fanuc and Mitsubishi trainer kits.</li>
+          <li>Set up Keyence, Pepper & Fuchs industrial sensors for object detection and machine health monitoring; applied selection criteria for sensor interfaces.</li>
+          <li>Operated Festo MPS PA204 smart sensor stations with PID controllers on MATLAB and LABVIEW; analysed the effect of PID parameter variation on process control.</li>
+          <li>Performed power quality, harmonics, and electrical signal measurements using smart workbench, industrial network kit, and QC20-W ball bar / XL80 laser calibration systems.</li>
+        </ul>
+      </div>
+
+      <div class="intern-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+          <div style="background:var(--teal-bg);color:var(--teal);font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;letter-spacing:0.5px;white-space:nowrap">MODULE 4</div>
+          <div class="intern-org" style="margin-bottom:0;font-size:17px">Industry 4.0 & Smart Manufacturing</div>
+        </div>
+        <div class="intern-role">IoT · Artificial Intelligence · Machine Learning · Computer Vision · AR/VR · MES · CIM</div>
+        <ul class="intern-points">
+          <li>Configured IoT devices (Raspberry Pi, Arduino, RFID, UWB Beacons) for M2M communications, data acquisition, cloud sharing, and real-time monitoring alerts.</li>
+          <li>Applied AI/ML techniques for defect detection, acoustic inspection, and model identification using GPU servers, Prolog simulation software, and PTC/PLM tools.</li>
+          <li>Built vision-based systems for defect detection and part presence/orientation inspection using vision cameras, Python, and Vuforia Studio.</li>
+          <li>Developed AR/VR modules with Studio Max and Solid Edge 3D for assembly guidance, remote troubleshooting, and training applications.</li>
+          <li>Studied MES applications (line tracking, zero changeover, flexible lines) and CIM concepts (AGV routing, FMS, CAPP, 3D printing, robot simulation with ROBODK).</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2020</div>
+        <div class="edu-inst">Secondary School Certificate</div>
+        <div class="edu-score">Score: <strong>84%</strong></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2022</div>
+        <div class="edu-inst">Higher Secondary Certificate</div>
+        <div class="edu-score">Score: <strong>79%</strong></div>
+      </div>
+      <div class="edu-card" style="grid-column: span 1">
+        <div class="edu-year">2022 – Present</div>
+        <div class="edu-inst">Bajaj Institute of Technology, DBATU</div>
+        <div class="edu-score">B.E. Mechanical Engineering</div>
+        <div class="edu-score" style="margin-top:4px">CGPA: <strong>6.17</strong> (till 6th semester)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="cert-name">Python Using AI</div>
+        <div class="cert-org">AI for Techies</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="cert-name">CREO Parametric</div>
+        <div class="cert-org">Bajaj Institute of Technology</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="cert-name">Siemens FEMAP</div>
+        <div class="cert-org">Bajaj Institute of Technology</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="cert-name">Mechanical Design Workshop</div>
+        <div class="cert-org">VCADD Engineering Solutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Let's Connect</div>
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title">Open to opportunities.</h2>
+        <p class="contact-intro">I'm actively looking for internships, project collaborations, and full-time roles in mechanical engineering, automotive, Industry 4.0, or simulation domains. Let's talk.</p>
+        <div class="resume-section">
+          <div class="resume-info">
+            <strong>Download Resume</strong>
+            <p>PDF / DOCX — Updated 2025</p>
+          </div>
+          <a href="#" class="btn btn-primary" style="white-space:nowrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:anvaysakalkale@gmail.com" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-link-info">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-val">anvaysakalkale@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/anvay-sakalkale" target="_blank" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="contact-link-info">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-val">linkedin.com/in/anvay-sakalkale</span>
+          </div>
+        </a>
+        <a href="tel:9405586085" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E5A" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a2 2 0 011.72-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 12.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 20z"/></svg>
+          </div>
+          <div class="contact-link-info">
+            <span class="contact-link-label">Phone</span>
+            <span class="contact-link-val">+91 9405586085</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Anvay Sakalkale &nbsp;·&nbsp; Mechanical Engineering &nbsp;·&nbsp; Bajaj Institute of Technology
+</footer>
+
+</body>
+</html>
